@@ -54,6 +54,12 @@ public class NumberPlaylist {
 		long count = numberPlayList.stream().count();
 		System.out.println("The average of all the numbers is "+(sum/count));
 		
+		boolean allEvenNumbers = numberPlayList.stream().allMatch(isEven);
+		System.out.println("All numbers are even : "+allEvenNumbers);
+		
+		boolean atLeastOneEvenNumber = numberPlayList.stream().anyMatch(isEven);
+		System.out.println("The list has minimum 1 even number : "+atLeastOneEvenNumber);
+		
 	}
 
 }
