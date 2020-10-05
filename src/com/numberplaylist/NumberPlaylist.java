@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class NumberPlaylist {
 
@@ -22,6 +24,10 @@ public class NumberPlaylist {
 		
 		Function<Integer, Double> integertoDouble = n -> n.doubleValue();
 		numberPlayList.stream().map(integertoDouble).forEach((n) -> {System.out.println("After conversion, element in the number list : "+n);});
+		
+		List<Double> doubleList = numberPlayList.stream().map(integertoDouble).collect(Collectors.toList());
+		System.out.println("List of double values after conversion : "+doubleList);
+		
 	}
 
 }
