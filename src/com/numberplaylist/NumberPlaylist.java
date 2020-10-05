@@ -3,6 +3,7 @@ package com.numberplaylist;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Function;
 
 public class NumberPlaylist {
 
@@ -18,6 +19,9 @@ public class NumberPlaylist {
 
 		System.out.println("Elements in the list:");
 		numberPlayList.stream().forEach(n -> {System.out.println(n);});
+		
+		Function<Integer, Double> integertoDouble = n -> n.doubleValue();
+		numberPlayList.stream().map(integertoDouble).forEach((n) -> {System.out.println("After conversion, element in the number list : "+n);});
 	}
 
 }
