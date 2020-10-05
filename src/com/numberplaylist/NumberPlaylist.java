@@ -48,6 +48,12 @@ public class NumberPlaylist {
 				.orElse(null);
 		System.out.println("Maximum even number : "+maxEvenNumber.doubleValue());
 		
+		Double sum = numberPlayList.stream().map(integertoDouble).reduce((double) 0, (x,y) -> x+y);
+		System.out.println("Sum of all numbers is "+sum);
+		
+		long count = numberPlayList.stream().count();
+		System.out.println("The average of all the numbers is "+(sum/count));
+		
 	}
 
 }
