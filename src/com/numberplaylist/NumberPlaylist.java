@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -27,6 +28,10 @@ public class NumberPlaylist {
 		
 		List<Double> doubleList = numberPlayList.stream().map(integertoDouble).collect(Collectors.toList());
 		System.out.println("List of double values after conversion : "+doubleList);
+		
+		Predicate<Integer> isEven = n -> n>0 && n%2==0;
+		List<Double> evenList = numberPlayList.stream().filter(isEven).map(integertoDouble).collect(Collectors.toList());
+		System.out.println("List of even number : "+evenList);
 		
 	}
 
