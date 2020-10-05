@@ -33,6 +33,11 @@ public class NumberPlaylist {
 		List<Double> evenList = numberPlayList.stream().filter(isEven).map(integertoDouble).collect(Collectors.toList());
 		System.out.println("List of even number : "+evenList);
 		
+		Double firstEvenNumber = numberPlayList.stream().filter(isEven).map(integertoDouble)
+				.findFirst()
+				.orElse(null);
+		System.out.println("First even number : "+firstEvenNumber);
+		
 	}
 
 }
