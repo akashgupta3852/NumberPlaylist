@@ -38,6 +38,16 @@ public class NumberPlaylist {
 				.orElse(null);
 		System.out.println("First even number : "+firstEvenNumber);
 		
+		Integer minEvenNumber = numberPlayList.stream().filter(isEven)
+				.min((x,y) -> x-y)
+				.orElse(null);
+		System.out.println("Minimum even number : "+minEvenNumber.doubleValue());
+		
+		Integer maxEvenNumber = numberPlayList.stream().filter(isEven)
+				.min((x,y) -> x+y)
+				.orElse(null);
+		System.out.println("Maximum even number : "+maxEvenNumber.doubleValue());
+		
 	}
 
 }
