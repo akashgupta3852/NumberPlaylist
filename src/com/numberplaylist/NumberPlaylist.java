@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class NumberPlaylist {
@@ -41,24 +40,28 @@ public class NumberPlaylist {
 		Integer minEvenNumber = numberPlayList.stream().filter(isEven)
 				.min((x,y) -> x-y)
 				.orElse(null);
-		System.out.println("Minimum even number : "+minEvenNumber.doubleValue());
+		System.out.println("Minimum even number : "+minEvenNumber);
 		
 		Integer maxEvenNumber = numberPlayList.stream().filter(isEven)
 				.min((x,y) -> x+y)
 				.orElse(null);
-		System.out.println("Maximum even number : "+maxEvenNumber.doubleValue());
+		System.out.println("Maximum even number : "+maxEvenNumber);
 		
 		Double sum = numberPlayList.stream().map(integertoDouble).reduce((double) 0, (x,y) -> x+y);
 		System.out.println("Sum of all numbers is "+sum);
 		
 		long count = numberPlayList.stream().count();
-		System.out.println("The average of all the numbers is "+(sum/count));
+		if(count!=0)
+			System.out.println("The average of all the numbers is "+(sum/count));
 		
 		boolean allEvenNumbers = numberPlayList.stream().allMatch(isEven);
 		System.out.println("All numbers are even : "+allEvenNumbers);
 		
 		boolean atLeastOneEvenNumber = numberPlayList.stream().anyMatch(isEven);
 		System.out.println("The list has minimum 1 even number : "+atLeastOneEvenNumber);
+		
+		List<Double> sortedList = numberPlayList.stream().sorted((x,y) -> x-y).map(integertoDouble).collect(Collectors.toList());
+		System.out.println("The sorted list of the numbers : "+ sortedList);
 		
 	}
 
